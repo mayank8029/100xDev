@@ -15,64 +15,44 @@
 
   Once you've implemented the logic, test your code by running
 */
-let result = 0 ; 
 class Calculator {
-
-  constructor(){
-
+  constructor() {
+    this.result = 0;
   }
 
-
-
-
-
-  add(val) {
-    result = result +val ; 
-    // return result ;  
-  }
-  subtract(val){
-    result = result-val ; 
-    // return result ; 
+  add(num) {
+    this.result += num;
   }
 
-  multiply(val){
-    result = result*val ; 
-  }
-  
-  divide(val){
-    if(val==0) return Error ; 
-    result = result/ val ; 
+  subtract(num) {
+    this.result -= num;
   }
 
-  clear(){
-    result = 0 ; 
+  multiply(num) {
+    this.result *= num;
   }
 
-  getResult(){
-    return result ; 
-  }
-
-  calculate(str){
-    let prev = 0 ; 
-    let ahead = 0 ; 
-    let a = 0 ; 
-    let m = 0 ; 
-    let d = 0 ; 
-    let s = 0 ; 
-
-    
-    for(let i =0 ; i < n ; i++){
-      (str[i]=='+' && a==0 ) ? a = 1 : return Error;;
-       
-      if(str[i]=='-' && s == 0) s = 1 ;
-      if(str[i]=='*' && m==0) m = 1 ; 
-      if(str[i]=='/' && m==0) d = 1 ; 
-
+  divide(num) {
+    if (num === 0) {
+      throw new Error("Cannot divide by zero");
     }
-   }
- 
-  
+    this.result /= num;
+  }
 
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  calculate(expression) {
+    this.result = eval(expression.trim());
+    if (!Number.isFinite(this.result)) {
+      throw new Error();
+    }
+  }
 }
 
 module.exports = Calculator;
