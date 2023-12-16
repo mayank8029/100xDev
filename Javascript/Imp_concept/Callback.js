@@ -12,9 +12,9 @@ const cart = ["pants" , "shoes" , "colors"] ;
 
 // above we can see that all things are dependent on each other thats why we need call backs ; 
 
-function fullname(fname){
-    console.log("my name is "+fname) ; 
-}
+// function fullname(fname){
+//     console.log("my name is "+fname) ; 
+// }
 
 // function myname(fname , fun){
 //     console.log(fname) ; 
@@ -24,13 +24,26 @@ function fullname(fname){
 // }
 // myname("mayank" ,fullname ) ; 
 
-callback(fname ,function fullname(){
-    console.log(fname) ; 
-} )
+// callback(fname ,function fullname(){
+//     console.log(fname) ; 
+// } )
 
-callback("mayank" ) ; 
+// callback("mayank" ) ; 
+
+function goTOPayment(){
+    console.log("here is the payment page") ; 
+}
+
+function createOrder(cart , func){
+    console.log(cart) ; 
+    if(!cart) throw Error("cart not exist") ; 
+    
+    func() ; 
+}
 
 
+
+createOrder(cart , goTOPayment )
 
 
 
