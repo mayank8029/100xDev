@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--Dom help us in adding functionalities to the website and make them dynamic-->
+
+<!--id help you in accessing the dom-->
+
+<script>
+
+// debouncing 
+
+let timeout ; 
+
+function debouncepopulateDiv(){
+    clearTimeout(timeout)
+
+    timeout = setTimeout(function(){
+          populateDiv() 
+    },1000)
+}
+
+
+    function populateDiv(){
+       // To append the value of the sum int he div with id final value I need document object model
+
+       // DOm help us in changing the structure of the website that we have 
+       const a = document.getElementById("firstNumber").value ; 
+       // we get a in string. I need to convert it into number
+       const b = document.getElementById("secondNumber").value ; 
+       const element = document.getElementById("finalsum")
+       // element is the dom object 
+       console.log(element) ; 
+       element.innerHTML = parseInt(a)+parseInt(b) ; 
+
+       // when you are using fetch function we have to convert our data to json or text and conversion of those data is also an async function 
+
+    }
+
+</script>
+<body>
+    <input oninput="debouncepopulateDiv()" id = "firstNumber"  type = "text" placeholder="First Number">
+    <br>
+    <input oninput="debouncepopulateDiv()" id = "secondNumber" type="text" placeholder="second Number">
+    <br>
+    <button onclick="populateDiv()">Calculate sum</button>
+    <div id = "finalsum"></div>
+</body>
+</html>
+
