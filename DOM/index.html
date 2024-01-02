@@ -1,0 +1,55 @@
+<html>
+    <head>
+    </head>
+    <script>
+        let container_id = 1 ; 
+
+        function completed(id){
+            document.getElementById(id).children[2].innerHTML="done" ;  
+        }
+        function createchild(title , description , id){
+            let child = document.createElement('div') ; 
+           let childTitle = document.createElement('div') ;
+           childTitle.innerHTML = title ;
+           
+           let childDescription = document.createElement('div')
+           childDescription.innerHTML = description ; 
+
+           let button = document.createElement('button') ; 
+           button.innerHTML = "not completed"
+
+           button.setAttribute('onClick' , `completed(${id})`)
+           
+           child.appendChild(childTitle)
+           child.appendChild(childDescription)
+           child.appendChild(button) ; 
+
+           child.setAttribute('id' , id) ;
+           
+           return child ; 
+
+
+        }
+        function addtodo(){
+          const title = document.getElementById("todo-title").value; 
+          const description = document.getElementById("todo-discription").value
+
+          const container= document.getElementById("container") ; 
+
+          container.appendChild(createchild(title , description , container_id++))
+
+        }
+          
+    </script>
+
+    <body>
+        <input type="text" id ="todo-title" placeholder="title"></input>
+        <br><br/>
+        <input type = "text" id = "todo-discription" placeholder="description">
+        <br><br/>
+        <button onclick="addtodo()">add todo</button>
+        <div id = "container">
+
+        </div>
+    </body>
+</html>
