@@ -6,3 +6,16 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+# Learning Recoil for state management 
+
+- This repo is created by following the documentation of the Recoil. 
+- First created the character count application.
+- Then the Todo Application 
+
+Add todo items
+Edit todo items
+Delete todo items
+Filter todo items
+Display useful stats
